@@ -1,0 +1,59 @@
+local Rs = game:GetService("ReplicatedStorage")
+
+if Rs:FindFirstChild("DogScript_By:ChimeraLle") then
+else
+	local new = Instance.new("Folder",Rs)
+	new.Name = "DogScript_By:ChimeraLle"
+	
+	local uis = game:GetService("UserInputService")
+	local plrs = game:GetService("Players")
+	
+	local plr = plrs.LocalPlayer
+	local char = plr.Character or plr.CharacterAdded:Wait()
+	local Animate = char:WaitForChild("Animate")
+	
+	local idle = Animate:WaitForChild("idle"):WaitForChild("Animation1")
+	local idle2 = Animate:WaitForChild("idle"):WaitForChild("Animation2")
+	local walk = Animate:WaitForChild("walk"):WaitForChild("WalkAnim")
+	local run = Animate:WaitForChild("run"):WaitForChild("RunAnim")
+	local jump = Animate:WaitForChild("jump"):WaitForChild("JumpAnim")
+	local fall = Animate:WaitForChild("fall"):WaitForChild("FallAnim")
+	
+	local Nid1 = idle.AnimationId
+	local Nid2 = idle2.AnimationId
+	local Nid3 = walk.AnimationId
+	local Nid4 = run.AnimationId
+	local Nid5 = jump.AnimationId
+	local Nid6 = fall.AnimationId
+	
+	local Yid1 = "rbxassetid://17438058727"
+	local Yid2 = "rbxassetid://17438058727"
+	local Yid3 = "rbxassetid://17438079179"
+	local Yid4 = "rbxassetid://17438079179"
+	local Yid5 = "rbxassetid://17438101916"
+	local Yid6 = "rbxassetid://17438233043"
+	
+	local Tranformed = false
+	
+	uis.InputBegan:Connect(function(key)
+		if key.KeyCode == Enum.KeyCode.H then
+			if Tranformed == false then
+				Tranformed = true
+				idle.AnimationId = Yid1
+				idle2.AnimationId = Yid2
+				walk.AnimationId = Yid3
+				run.AnimationId = Yid4
+				jump.AnimationId = Yid5
+				fall.AnimationId = Yid6
+			else
+				Tranformed = false
+				idle.AnimationId = Nid1
+				idle2.AnimationId = Nid2
+				walk.AnimationId = Nid3
+				run.AnimationId = Nid4
+				jump.AnimationId = Nid5
+				fall.AnimationId = Nid6
+			end
+		end
+	end)
+end
