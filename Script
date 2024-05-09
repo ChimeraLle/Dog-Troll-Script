@@ -1,7 +1,9 @@
 local Rs = game:GetService("ReplicatedStorage")
 
 if Rs:FindFirstChild("DogScript_By:ChimeraLle") then
+	print("already working!")
 else
+	print("working now!")
 	local new = Instance.new("Folder",Rs)
 	new.Name = "DogScript_By:ChimeraLle"
 	
