@@ -11,7 +11,7 @@ else
 	local plrs = game:GetService("Players")
 	
 	local plr = plrs.LocalPlayer
-	local char = plr.Character or plr.CharacterAdded:Wait()
+	local char = workspace:WaitForChild(plr.Name,10)
 	local Animate = char:WaitForChild("Animate")
 	
 	local idle = Animate:WaitForChild("idle"):WaitForChild("Animation1")
